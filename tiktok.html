@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest TikTok trends! Explore viral dances, funny skits, and trending sounds of the week.">
+    <title>TikTok Trends of the Week | The Trend Radar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B09AD9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #792DAF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .trend {
+            display: flex;
+            flex-wrap: wrap;
+            background: #F195C3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            align-items: center;
+        }
+        .trend h2 {
+            color: #792DAF;
+            flex: 1;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            margin-left: auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        .video-container:hover img {
+            opacity: 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #B665BC;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #792DAF;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #B665BC;
+            color: white;
+            margin-top: 20px;
+        }
+        /* Improved hidden trends section */
+        .hidden-trends {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        @media (max-width: 600px) {
+            .trend {
+                flex-direction: column;
+                text-align: center;
+            }
+            .video-container {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        TikTok Trends of the Week
+    </header>
+    <div class="container">
+        <div class="trend">
+            <h2>🔥 Trend 1: Dance Challenge</h2>
+            <p>Users are grooving to the latest viral dance. Have you tried it yet?</p>
+            <div class="video-container">
+                <img src="./car gas.jpg" alt="Trend 1 Poster" loading="lazy">
+                <video class="trend-video" id="video1" preload="metadata">
+                    <source src="./car gas.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="controls">
+                    <button onclick="togglePlay()">▶️</button>
+                    <div class="progress-bar" onclick="seek(event)"></div>
+                    <button onclick="toggleMute()">🔊</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trend">
+            <h2>🎭 Trend 2: Funny Skits</h2>
+            <p>Creators are making hilarious takes on everyday situations.</p>
+            <div class="video-container">
+                <img src="poster2.jpg" alt="Trend 2 Poster" loading="lazy">
+                <video class="trend-video" muted>
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="controls">
+                    <button onclick="togglePlay('video1')">▶️</button>
+                    <div class="progress-bar" onclick="seek(event, 'video1')"></div>
+                    <button onclick="toggleMute('video1')">🔊</button>
+                </div>
+            </div>
+        </div>
+        <div class="trend">
+            <h2>🎶 Trend 3: Trending Sounds</h2>
+            <p>A new catchy sound is taking over TikTok. Time to make your version!</p>
+            <div class="video-container">
+                <img src="poster3.jpg" alt="Trend 3 Poster" loading="lazy">
+                <video class="trend-video" muted>
+                    <source src="video3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="controls">
+                    <button onclick="togglePlay('video1')">▶️</button>
+                    <div class="progress-bar" onclick="seek(event, 'video1')"></div>
+                    <button onclick="toggleMute('video1')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden trends section -->
+        <div class="hidden-trends" id="more-trends">
+            <div class="trend">
+                <h2>🎉 Trend 4: Comedy Lip Sync</h2>
+                <p>Creators are lip-syncing to funny dialogues and memes. Join the fun!</p>
+                <div class="video-container">
+                    <img src="poster4.jpg" alt="Trend 4 Poster" loading="lazy">
+                    <video class="trend-video" muted>
+                        <source src="video4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="controls">
+                        <button onclick="togglePlay('video1')">▶️</button>
+                        <div class="progress-bar" onclick="seek(event, 'video1')"></div>
+                        <button onclick="toggleMute('video1')">🔊</button>
+                    </div>
+                </div>
+            </div>
+            <div class="trend">
+                <h2>🎥 Trend 5: POV Videos</h2>
+                <p>Everyone's creating unique point-of-view content with exciting stories.</p>
+                <div class="video-container">
+                    <img src="poster5.jpg" alt="Trend 5 Poster" loading="lazy">
+                    <video class="trend-video" muted>
+                        <source src="video5.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="controls">
+                        <button onclick="togglePlay('video1')">▶️</button>
+                        <div class="progress-bar" onclick="seek(event, 'video1')"></div>
+                        <button onclick="toggleMute('video1')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn" id="see-more-btn">See More Trends</a>
+    </div>
+    <footer>
+        &copy; 2025 The Trend Radar | Follow us for more updates!
+    </footer>
+
+    <script>
+        // Video hover functionality
+        document.querySelectorAll('.video-container').forEach(function(container) {
+            const video = container.querySelector('.trend-video');
+            const poster = container.querySelector('img');
+
+            container.addEventListener('mouseover', function() {
+                video.play();
+                poster.style.opacity = '0';
+            });
+
+            container.addEventListener('mouseout', function() {
+                video.pause();
+                video.currentTime = 0;
+                poster.style.opacity = '1';
+            });
+        });
+
+        // Smooth toggle "See More Trends" functionality
+        document.getElementById('see-more-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            var moreTrends = document.getElementById('more-trends');
+            if (moreTrends.style.maxHeight) {
+                moreTrends.style.maxHeight = null;
+                this.textContent = 'See More Trends';
+            } else {
+                moreTrends.style.maxHeight = moreTrends.scrollHeight + 'px';
+                this.textContent = 'See Less Trends';
+            }
+        });
+
+        let video = document.getElementById("video1");
+    
+    function togglePlay() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function toggleMute() {
+        video.muted = !video.muted;
+    }
+
+    function seek(event) {
+        const progressBar = event.currentTarget;
+        const percentage = (event.offsetX / progressBar.offsetWidth);
+        video.currentTime = percentage * video.duration;
+    }
+    </script>
+</body>
+</html>
