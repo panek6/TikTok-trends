@@ -119,9 +119,9 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="controls">
-                    <button onclick="togglePlay()">▶️</button>
-                    <div class="progress-bar" onclick="seek(event)"></div>
-                    <button onclick="toggleMute()">🔊</button>
+                    <button onclick="togglePlay('video1')">▶️</button>
+                    <div class="progress-bar" onclick="seek(event, 'video1')"></div>
+                    <button onclick="toggleMute('video1')">🔊</button>
                 </div>
             </div>
         </div>
@@ -131,14 +131,14 @@
             <p>Creators are making hilarious takes on everyday situations.</p>
             <div class="video-container">
                 <img src="poster2.jpg" alt="Trend 2 Poster" loading="lazy">
-                <video class="trend-video" muted>
+                <video class="trend-video" id="video2" muted>
                     <source src="video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="controls">
-                    <button onclick="togglePlay('video1')">▶️</button>
-                    <div class="progress-bar" onclick="seek(event, 'video1')"></div>
-                    <button onclick="toggleMute('video1')">🔊</button>
+                    <button onclick="togglePlay('video2')">▶️</button>
+                    <div class="progress-bar" onclick="seek(event, 'video2')"></div>
+                    <button onclick="toggleMute('video2')">🔊</button>
                 </div>
             </div>
         </div>
@@ -147,14 +147,14 @@
             <p>A new catchy sound is taking over TikTok. Time to make your version!</p>
             <div class="video-container">
                 <img src="poster3.jpg" alt="Trend 3 Poster" loading="lazy">
-                <video class="trend-video" muted>
+                <video class="trend-video" id="video3" muted>
                     <source src="video3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="controls">
-                    <button onclick="togglePlay('video1')">▶️</button>
-                    <div class="progress-bar" onclick="seek(event, 'video1')"></div>
-                    <button onclick="toggleMute('video1')">🔊</button>
+                    <button onclick="togglePlay('video3')">▶️</button>
+                    <div class="progress-bar" onclick="seek(event, 'video3')"></div>
+                    <button onclick="toggleMute('video3')">🔊</button>
                 </div>
             </div>
         </div>
@@ -166,14 +166,14 @@
                 <p>Creators are lip-syncing to funny dialogues and memes. Join the fun!</p>
                 <div class="video-container">
                     <img src="poster4.jpg" alt="Trend 4 Poster" loading="lazy">
-                    <video class="trend-video" muted>
+                    <video class="trend-video" id="video4" muted>
                         <source src="video4.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="controls">
-                        <button onclick="togglePlay('video1')">▶️</button>
-                        <div class="progress-bar" onclick="seek(event, 'video1')"></div>
-                        <button onclick="toggleMute('video1')">🔊</button>
+                        <button onclick="togglePlay('video4')">▶️</button>
+                        <div class="progress-bar" onclick="seek(event, 'video4')"></div>
+                        <button onclick="toggleMute('video4')">🔊</button>
                     </div>
                 </div>
             </div>
@@ -182,14 +182,14 @@
                 <p>Everyone's creating unique point-of-view content with exciting stories.</p>
                 <div class="video-container">
                     <img src="poster5.jpg" alt="Trend 5 Poster" loading="lazy">
-                    <video class="trend-video" muted>
+                    <video class="trend-video" id="video5" muted>
                         <source src="video5.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="controls">
-                        <button onclick="togglePlay('video1')">▶️</button>
-                        <div class="progress-bar" onclick="seek(event, 'video1')"></div>
-                        <button onclick="toggleMute('video1')">🔊</button>
+                        <button onclick="togglePlay('video5')">▶️</button>
+                        <div class="progress-bar" onclick="seek(event, 'video5')"></div>
+                        <button onclick="toggleMute('video5')">🔊</button>
                     </div>
                 </div>
             </div>
@@ -232,25 +232,26 @@
             }
         });
 
-        let video = document.getElementById("video1");
-    
-    function togglePlay() {
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
+        function togglePlay(videoId) {
+            let video = document.getElementById(videoId);
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
         }
-    }
 
-    function toggleMute() {
-        video.muted = !video.muted;
-    }
+        function toggleMute(videoId) {
+            let video = document.getElementById(videoId);
+            video.muted = !video.muted;
+        }
 
-    function seek(event) {
-        const progressBar = event.currentTarget;
-        const percentage = (event.offsetX / progressBar.offsetWidth);
-        video.currentTime = percentage * video.duration;
-    }
+        function seek(event, videoId) {
+            let video = document.getElementById(videoId);
+            const progressBar = event.currentTarget;
+            const percentage = (event.offsetX / progressBar.offsetWidth);
+            video.currentTime = percentage * video.duration;
+        }
     </script>
 </body>
 </html>
